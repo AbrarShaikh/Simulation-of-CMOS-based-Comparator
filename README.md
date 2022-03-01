@@ -39,10 +39,8 @@ the drive currents of the latch. But, if we increase the size of the tail transi
 ![image](https://user-images.githubusercontent.com/34272376/156208995-b2adb742-9514-4c79-9be3-fdd1e9e83fae.png)
 
 # Result and Discussion 
-
 ## Waveform
-![image](https://user-images.githubusercontent.com/34272376/156211079-8d264118-969b-4731-a6f2-b2bdcbe904ab.png)
-
+![image](https://user-images.githubusercontent.com/34272376/156221065-7f4af0cb-0ea8-45c2-a9a1-eb385229a4ff.png)
 
 ## Acknowledgement
 1. Synopsys Team/Company
