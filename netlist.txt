@@ -1,0 +1,78 @@
+*  Generated for: PrimeSim
+*  Design library name: comparator
+*  Design cell name: comptr_tb
+*  Design view name: schematic
+.lib 'saed32nm.lib' TT
+
+*Custom Compiler Version S-2021.09
+*Tue Mar  1 15:50:26 2022
+
+.global gnd!
+********************************************************************************
+* Library          : comparator
+* Cell             : comptr
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt comptr clk in+ in- out+ out- vdd
+xm5 net92 clk vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+xm4 out- clk vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+xm3 out- out+ vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+xm2 out+ out- vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+xm1 out+ clk vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+xm0 clk clk vdd vdd p105 w=0.1u l=0.03u nf=1 m=1
+xm31 clk net76 net39 gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm32 net92 net83 net39 gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm29 net92 in+ net39 gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm10 net39 clk gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm12 out+ out- clk gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm8 clk in- net39 gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm6 out- out+ net92 gnd! n105 w=0.1u l=0.03u nf=1 m=1
+v41 net83 gnd! dc=-0.3
+v40 net76 gnd! dc=0.3
+.ends comptr
+
+********************************************************************************
+* Library          : comparator
+* Cell             : comptr_tb
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+xi14 clk vin+ vin- out+ out- net17 comptr
+v16 vin+ gnd! dc=1.5
+v8 vin- gnd! dc=.3
+v5 net17 gnd! dc=1.8
+v2 clk gnd! dc=0 pulse ( 0 1.2 0 0.1u 0.1u 5u 10u )
+c15 out+ net35 c=1p
+c12 out- net35 c=1p
+
+
+
+
+
+
+
+
+.tran '1u' '20u' name=tran
+
+.option primesim_remove_probe_prefix = 0
+.probe v(*) i(*) level=1
+.probe tran v(clk) v(net35) v(out+) v(out-)
+
+.temp 25
+
+
+
+.option primesim_output=wdf
+
+
+.option parhier = LOCAL
+
+
+
+
+
+
+.end
